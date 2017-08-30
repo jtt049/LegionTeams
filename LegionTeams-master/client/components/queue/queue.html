@@ -1,0 +1,85 @@
+<template name="queue">
+  <div id="queue" class="col-sm-offset-2 col-sm-8 text-center">
+    <div id="loader"></div>
+    <!-- <p><h1>Waiting for others to join...</h1>
+    <b>Please wait up to 15 minutes. After everyone is ready, you have 2 minutes to click "I'm ready" to move to next portion of task. If you do not, you will be dropped and be paid only for your time waiting</b>
+    {{> timer}}
+</p> -->
+    {{#with worker}}
+       
+       <!--  <table id="worker-info" class="table table-bordered">
+          <tbody>
+            <tr>
+              <th scope="row">Worker ID</th>
+              <td>{{workerId}}</td>
+            </tr>
+            <tr>
+              <th scope="row">Source</th>
+              <td>{{source}}</td>
+            </tr>
+            <tr>
+              <th scope="row">Source ID</th>
+              <td>{{id}}</td>
+            </tr>
+          </tbody>
+        </table>
+ -->
+        {{#if equals status 'waiting'}}
+          <h3><b>Waiting for others to join...</b></h3>
+          <h3><b>Stay on this page up to 15 minutes</b></h3>
+         
+            {{>timer}}
+            <br />
+            <br /> <br /> 
+           <div id="queuegraph">
+          <div id="queuethreshhold" class="graph-line">mTurkers need to start task = {{experiment.teamSize}}</div>
+          <div id="queuecount" class="graph-line" style={{stylegraph}}>mTurkers in the room = {{workers.count}}</div>
+        </div>
+        <br />
+      <div align="left">
+      <ul>
+        <li style="color:red;"><h4 style="color:red;"><b>Please do not refresh the page!</b></h4></li>
+        <li><h4><b>Once the red "I'm ready" button appears here, you have 2:00 minutes to click it or you will be dropped from the task with the minimum compensation.</b></h4></li>
+        <li><h4><b>You will have to wait between 1 and 15 minutes depnding on how quickly other people join. If you leave before the button appears, you will not be compensated. </b></h4>
+        </li>
+      </ul>      
+      </div>
+        {{/if}}
+
+        {{#if equals status 'confirm'}}
+            <h3><b>You have 2:00 minutes to click "I'm ready" or you will be dropped from the task with the minimum compensation.</b></h3>
+             <h3 style="color:red;"><b>Please do not refresh the page!</b></h3>
+             {{> timerConfirm}}
+             <br />
+             <br />
+             <br />
+            <!--<button class="btn btn-danger queue-cancel-btn">Cancel</button>-->
+        
+            <button class="btn btn-primary queue-confirm-btn">I'm Ready</button>
+            
+        {{/if}}
+
+        {{#if equals status 'confirmed'}}
+          <h3><b>Great! Waiting for others to confirm before you are automatically redirected to the task...</b></h3>
+           <h3 style="color:red;"><b>Please do not refresh the page!</b></h3>
+           
+            {{> timerConfirm}} 
+            <br />
+           <br />
+            <br />
+           <h3>(you may have to wait up to 2 minute)</h3>
+        {{/if}}
+
+        {{#if equals status 'launch'}}
+           <h3><b>Launching task...</b></h3>
+        {{/if}}
+
+    {{/with}}
+
+  </div>
+
+
+
+    <!--<div class="miniclip-game-embed" data-game-name="twisted-lines" data-theme="0" data-width="500" data-height="660" data-language="en"><a href="http://www.miniclip.com/games/twisted-lines/">Play Twisted Lines</a></div>-->
+<!--<p style="text-align:center;"><a href="http://www.miniclip.com/games/twisted-lines/" target="_blank">Play Twisted Lines</a> / More <a href="http://www.miniclip.com/games/genre-1/" target="_blank">Puzzle games</a></p>-->
+</template>

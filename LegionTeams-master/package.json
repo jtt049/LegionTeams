@@ -1,0 +1,22 @@
+{
+  "name": "legionteams",
+  "version": "1.0.0",
+  "description": "Tool to form teams and send to tasks",
+  "main": "index.js",
+  "dependencies": {
+    "babel-runtime": "^6.23.0",
+    "bcrypt": "^0.8.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/josephnle/LegionTeams.git"
+  },
+  "bugs": {
+    "url": "https://github.com/josephnle/LegionTeams/issues"
+  },
+  "homepage": "https://github.com/josephnle/LegionTeams#readme"
+}

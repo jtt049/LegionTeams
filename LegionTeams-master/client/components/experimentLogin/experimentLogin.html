@@ -1,0 +1,37 @@
+<template name="experimentLogin">
+    <div class="page-home">
+        <div class="col-sm-6">
+            <h1>Welcome!</h1>
+            <p>
+                Here's what you will do now: <br><br>
+                <ul>
+                    <li>Please read the consent text below</li>
+                    <li>Enter ID in the box provided</li>
+                </ul>
+                <br>
+                {{#with taskDuration}}
+                We expect the waiting time for the team task to start will be <strong>{{taskDuration}}</strong>. 
+                The tab for this page will blink when the task is starting.<br><br>
+                {{/with}}
+                <br>
+                <p class=MsoNormal><span style='letter-spacing:-.15pt'><strong> By entering your ID and pressing the "Next" button, you are agreeing that you are over 18 years old, have read and understand all information on this page, and want to participate in this research. 
+               </strong></span></p>
+            </p>
+        </div>
+        <div class="col-sm-6">
+            <form class="login-worker">
+                <div class="form-group">
+                    <label for="source">Source</label>
+                    <select name="source" id="source" class="form-control">
+                        <option value="mturk">Mechanical Turk</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="sourceId">ID</label>
+                    <input type="text" class="form-control" name="sourceId">
+                </div>
+                <input type="submit" class="btn btn-block btn-primary" value="Next">
+            </form>
+        </div>
+    </div>
+</template>

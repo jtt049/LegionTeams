@@ -1,0 +1,100 @@
+<template name="dashboard">
+    <div class="page-header">
+        <h1>Requester Dashboard</h1>
+    </div>
+    <h3>{{experiment.name}}</h3>
+
+    <div id="overview" class="container">
+      <div class="row">
+        <div id="graph" class="col-sm-8">
+          <div id="threshhold" class="graph-line">Threshold = {{experiment.teamSize}}</div>
+          <div id="count" class="graph-line" style={{graphStyles}}>Workers = {{workers.count}}</div>
+        </div>
+        <div id="worker-launch" class="col-sm-4 text-center">
+          <h1>{{workers.count}}</h1>
+          <h4 class="color-grey">Workers in Queue</h4>
+          <button class="btn btn-primary dashboard-launch-btn">Launch</button>
+          <button class="btn btn-secondary dashboard-settings-btn">Settings</button>
+          <br>
+          {{> watchOne}}
+        </div>
+      </div>
+    </div>
+
+    <div id="participant-table" class="">
+    <h3>Workers</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Source</th>
+                <th>ID</th>
+                <th>Status</th>
+                <th>Joined at</th>
+                <th>Launch Time</th>
+            </tr>
+        </thead>
+
+        <tbody>
+        {{#each workers}}
+            <tr>
+                <td>{{source}}</td>
+                <td>{{id}}</td>
+                <td>{{status}}</td>
+                <td>{{createdAt}}</td>
+                <td>{{launchTime}}</td>
+            </tr>
+        {{/each}}
+        </tbody>
+    </table>
+  </div>
+  <div id="settings" class="container">
+    <div class="settings-content">
+      <h1>Settings</h1>
+      <form class="settings-form">
+          <div class="form-group">
+              <label for="name">Experiment Name</label>
+              <input type="text" name="name" id="name" class="form-control" placeholder={{experiment.name}}>
+          </div>
+          <div class="form-group">
+              <label for="teamSize">Workers per Team</label>
+              <input type="number" name="teamSize" id="teamSize" class="form-control" placeholder={{experiment.teamSize}}>
+          </div>
+          <div class="form-group">
+              <label for="taskURL">Link to Task (Must Start with http:// or https://)</label>
+              <input type="text" name="taskURL" id="taskURL" class="form-control" placeholder={{experiment.taskURL}}>
+          </div>
+          <div class="form-group">
+              <label for="constraints">Constraints</label>
+          </div>
+          <label for="queue-task">Queueing Task</label>
+          <div class="form-group">
+              <label class="radio-inline">
+                  <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> Tetris
+              </label>
+              <label class="radio-inline">
+                  <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> Rock, Paper Scissors
+              </label>
+              <label class="radio-inline form-inline">
+                  <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> Custom:
+                  <input type="text" name="task-url" id="queueTask" class="form-control" placeholder="http://qualtrics.com/asdfa">
+              </label>
+          </div>
+          <div class="form-group">
+              <label for="sources">Sources</label>
+              <div class="checkbox">
+                  <label>
+                      <input type="checkbox"> Mechanical Turk
+                  </label>
+                  <label>
+                      <input type="checkbox"> SONA
+                  </label>
+              </div>
+          </div>
+          <hr>
+          <div class="pull-right">
+              <input type="submit" class="btn btn-success settings-save-btn" value="Save Settings">
+          </div>
+      </form>
+  </div>
+  </div>
+</template>

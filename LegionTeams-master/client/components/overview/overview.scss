@@ -1,0 +1,49 @@
+#panel {
+  height: 100vh;
+  width: 25vw;
+  position: fixed;
+  right: 0;
+  border-left: 1px solid black;
+  text-align: center;
+
+  .account {
+    width: 25vw;
+    flex-wrap: wrap;
+    margin-top: 15vh;
+
+    h5 {
+      padding: 10px 0;
+    }
+  }
+
+  .profile-picture {
+    background: #E3E3E3;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    margin: 0 auto;
+  }
+
+  .researcher-items {
+    width: 20vw;
+    margin: 0 auto;
+
+    ul{
+      list-style: none;
+      padding-left:0;
+      margin-top: 15vh;
+
+      li {
+        padding: 10px 0;
+        border-bottom: 1px solid #E3E3E3;
+      }
+    }
+  }
+}
+
+#experiments {
+  height: 100vh;
+  width: 75vw;
+  position: fixed;
+  left: 0;
+}

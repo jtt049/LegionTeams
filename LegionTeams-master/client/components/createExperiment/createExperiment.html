@@ -1,0 +1,51 @@
+<template name="createExperiment">
+    <div class="page-header">
+        <h1>Create an experiment</h1>
+    </div>
+    <form class="create-experiment">
+        <div class="form-group">
+            <label for="name">Experiment Name</label>
+            <input type="text" name="name" id="name" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="teamSize">Workers per Team</label>
+            <input type="number" name="teamSize" id="teamSize" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="taskUrl">Task URL</label>
+            <input type="text" name="taskUrl" id="taskUrl" class="form-control" placeholder="http://qualtrics.com/asdfa">
+        </div>
+     
+
+        <!--<div class="form-group">-->
+            <!--<label for="constraints">Constraints</label>-->
+        <!--</div>-->
+        <!--<label for="queueing-task">Queueing Task</label>-->
+        <!--<div class="form-group">-->
+            <!--<label class="radio-inline">-->
+                <!--<input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> Tetris-->
+            <!--</label>-->
+            <!--<label class="radio-inline">-->
+                <!--<input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> Rock, Paper Scissors-->
+            <!--</label>-->
+            <!--<label class="radio-inline form-inline">-->
+                <!--<input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> Custom:-->
+            <!--</label>-->
+        <!--</div>-->
+        <!--<div class="form-group">-->
+            <!--<label for="sources">Sources</label>-->
+            <!--<div class="checkbox">-->
+                <!--<label>-->
+                    <!--<input type="checkbox"> Mechanical Turk-->
+                <!--</label>-->
+                <!--<label>-->
+                    <!--<input type="checkbox"> SONA-->
+                <!--</label>-->
+            <!--</div>-->
+        <!--</div>-->
+        <hr>
+        <div class="pull-right">
+            <button class="btn btn-success">Create Experiment</button>
+        </div>
+    </form>
+</template>

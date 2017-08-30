@@ -1,0 +1,42 @@
+<template name="requester">
+    {{#if currentUser}}
+        <div class="page-header">
+            <h1>Requester Dashboard</h1>
+        </div>
+
+        <div>
+            <h2>Experiments <span class="pull-right">
+                <a href="/requester/experiment/create" class="btn btn-success create-experiment-button">
+                    Create Experiment
+                </a>
+            </span>
+            </h2>
+        </div>
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Task URL</th>
+                <th>Created</th>
+                <th>Manage</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{#each experiments}}
+                <tr>
+                    <td>{{name}}</td>
+                    <td><a href="{{taskURL}}">{{taskURL}}</a></td>
+                    <td>{{createdAt}}</td>
+                    <td>
+                        <a href="/experiment/{{_id}}/dashboard" class="btn btn-primary manage-experiment">
+                            <span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span>
+                        </a>
+                    </td>
+                </tr>
+            {{/each}}
+            </tbody>
+        </table>
+    {{else}}
+        {{> login}}
+    {{/if}}
+</template>
